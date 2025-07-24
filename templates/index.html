@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="Find and search recipes by ingredients, dietary preferances, and more">
+        <meta name="keywords" content="recipes, cooking, baking, ingredients, healthy eating, diet, allergies">
+        <title>Recipe Finder</title>
+        <link rel="stylesheet" href="{{ url_for('static', filename='styles.css')}}">
+        <script src="{{ url_for('static', filename='js/search.js')}}" defer></script>
+        <script src="{{ url_for('static', filename='js/recipe-details.js')}}" defer></script>
+    </head>
+    <body>
+        <header>
+            <h1>Recipe Search</h1>
+        </header>
+        
+        <main>
+            <!-- Search form content-->
+            <section id="search-section">
+                <form id="search-form">
+                    <h3>Enter Ingredients or Dish Names</h3>
+
+                    <!-- Search filters-->
+                    <div id="filters">
+                        <label for="diet" class="sr-only">Diet Type</label>
+                        <select id="diet">
+                            <option value="">Select Diet</option>
+                            <option value="vegan">Vegan</option>
+                            <option value="vegetarian">Vegetarian</option>
+                            <option value="pescetarian">Pescetarian</option>
+                            <option value="gluten-free">Gluten Free</option>
+                            <option value="dairy-free">Dairy Free</option>
+                        </select>
+                        <label for="include" class="sr-only">Include Ingredients</label>
+                        <input type="text" id="include" placeholder="Include Ingredients">
+                        <label for="exclude" class="sr-only">Exclude Ingredients</label>
+                        <input type="text" id="exclude" placeholder="Exclude Ingredients">
+                    </div>
+
+                    <!-- Search Bar -->
+                    <div class="search-bar"> 
+                        <label for="query" class="sr-only">Recipe search query</label> 
+                        <input type="text" id="query" name="query" placeholder="pasta, fish, salad..." >
+                        <button type="submit" id="search-btn">Search</button>
+                    </div>
+
+                </form>
+            </section>
+
+            <!-- Results display-->
+            <section id="results-section">
+
+                <!-- Loading message element-->
+                <div id="loading">
+                    Searching for recipes....
+                </div>
+
+                <div id="error" role="alert"></div>
+
+                <!-- Displayed/total results count-->
+                <p id="results-count"></p>
+
+                <div id="results"></div>
+            </section>
+
+            <section id="recipe-detail-section" style="display: none;">
+                <div id="recipe-detail-content">
+                    <!-- Back button -->
+                    <button id="back-to-results" class="back-btn">← Back</button>
+                    
+                    <!-- Recipe detail loading message -->
+                    <div id="recipe-loading" style="display: none;">
+                        Loading recipe details...
+                    </div>
+                    
+                    <!-- Recipe detail error message -->
+                    <div id="recipe-error" role="alert" style="display: none;"></div>
+                    
+                    <!-- Recipe detail content -->
+                    <div id="recipe-details">
+                        <div class="recipe-header">
+                            <img id="recipe-image" src="" alt="" class="recipe-detail-image">
+                            <div class="recipe-info">
+                                <h2 id="recipe-title"></h2>
+                                <div class="recipe-meta">
+                                    <span id="recipe-time"></span>
+                                    <span id="recipe-servings"></span>
+                                    <span id="recipe-diet-tags"></span>
+                                </div>
+                                <div id="recipe-summary" class="recipe-summary"></div>
+                            </div>
+                        </div>
+                        
+                        <div class="recipe-content">
+                            <!-- Ingredients info -->
+                            <div class="ingredients-info">
+                                <h3>Ingredients</h3>
+                                <ul id="ingredients-list"></ul>
+                            </div>
+                            
+                            <!-- Instructions info -->
+                            <div class="instructions-info">
+                                <h3>Instructions</h3>
+                                <ul id="instructions-list"></ul>
+                            </div>
+                            
+                            <!-- Nutrition info -->
+                            <div id="nutrition-info" class="nutrition-info">
+                                <h3>Nutrition Information</h3>
+                                <div id="nutrition-details"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            
+            <div id="page-controls">
+                <button id="previous-btn">← Previous</button>
+                <span id="page-number"></span>
+                <button id="next-btn">Next →</button>
+            </div>
+
+        </main>
+
+        <noscript>
+            <div id="noscript-message">
+                <p>This recipe search requires JavaScript to function. Please enable Javascript in your browser</p>
+            </div>
+        </noscript>
+
+        <footer>
+            <div id="date"></div>
+        </footer>
+
+    </body>
+</html>

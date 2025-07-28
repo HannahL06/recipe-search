@@ -19,8 +19,8 @@ Link for live version: https://recipe-search-gkgz.onrender.com
 ## Setup Guide
 1. Clone the Repository
      ```bash
-     git clone https://github.com/HannahL06/recipe-search.git
-     cd recipe-search
+     git clone https://github.com/HannahL06/recipe-search-app.git
+     cd recipe-search-app
      ```
 2. Get your Spoonacular API key
 
@@ -43,5 +43,5 @@ Link for live version: https://recipe-search-gkgz.onrender.com
      ```
 6. Run the app
    ```bash
-   flask --app recipe-search run
+   flask --app recipe-search-app run
    ```
